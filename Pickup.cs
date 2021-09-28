@@ -10,7 +10,7 @@ namespace Assignment2
     { 
         public enum Brand { Ford = 1, Nissan = 2, Chevrolet = 3 }
 
-    public void SpecialProcess()
+    public override void SpecialProcess()
     {
         Console.WriteLine("Pickup cover installation done...");
     }

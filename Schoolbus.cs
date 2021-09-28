@@ -10,7 +10,7 @@ namespace Assignment2
     {
         public enum Brand { Navistar = 1, Collins = 2, REV = 3 }
 
-        public void SpecialProcess()
+        public override void SpecialProcess()
         {
             Console.WriteLine("School Bus interior cleaning done...");
         }

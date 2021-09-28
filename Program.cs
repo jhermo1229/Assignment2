@@ -56,6 +56,8 @@ namespace Assignment2
         }
 
         //Process the vehicle of the customer
+        //Done polymorphism and overriding here
+        //SpecialProcess() - override method
         public Vehicle ProcessVehicle()
         {
             int value = 0;
@@ -67,43 +69,52 @@ namespace Assignment2
             switch (value)
             {
                 case 1:
-                    Car car = new();                    
+                    vehicle = new Car();                    
                     var carBrandList = Enum.GetNames(typeof(Car.Brand));
                     value = LoopingChoices(Brand, carBrandList);
-                    brand = car.GetBrand(value);
-                    vehicle = GetVehicle(brand, GetCarModel(brand), GetYearModel());
+                    brand = ((Car)vehicle).GetBrand(value);
+                    vehicle.BrandName = brand;
+                    vehicle.Model = GetCarModel(brand);
+                    vehicle.YearOfMake = GetYearModel();
                     ConstantProcess();
-                    car.SpecialProcess();
+                    vehicle.SpecialProcess();
+                    
                     return vehicle;
 
                 case 2:
-                    Schoolbus schoolBus = new();
+                    vehicle = new Schoolbus();
                     var schoolBusBrandList = Enum.GetNames(typeof(Schoolbus.Brand));
                     value = LoopingChoices(Brand, schoolBusBrandList);
-                    brand = schoolBus.GetBrand(value);
-                    vehicle = GetVehicle(brand, GetSchoolbusModel(brand), GetYearModel());
+                    brand = ((Schoolbus)vehicle).GetBrand(value);
+                    vehicle.BrandName = brand;
+                    vehicle.Model = GetSchoolbusModel(brand);
+                    vehicle.YearOfMake = GetYearModel();
                     ConstantProcess();
-                    schoolBus.SpecialProcess();
+                    vehicle.SpecialProcess();
                     return vehicle;
 
                 case 3:
-                    Pickup pickup = new();
+                    vehicle = new Pickup();
                     var pickupBrandList = Enum.GetNames(typeof(Pickup.Brand));
                     value = LoopingChoices(Brand, pickupBrandList);
-                    brand = pickup.GetBrand(value);
-                    vehicle = GetVehicle(brand, GetPickupModel(brand), GetYearModel());
+                    brand = ((Pickup)vehicle).GetBrand(value);
+                    vehicle.BrandName = brand;
+                    vehicle.Model = GetPickupModel(brand);
+                    vehicle.YearOfMake = GetYearModel();
                     ConstantProcess();
-                    pickup.SpecialProcess();
+                    vehicle.SpecialProcess();
                     return vehicle;
 
                 case 4:
-                    Tractor tractor = new();
+                    vehicle = new Tractor();
                     var tractorBrandList = Enum.GetNames(typeof(Tractor.Brand));
                     value = LoopingChoices(Brand, tractorBrandList);
-                    brand = tractor.GetBrand(value);
-                    vehicle = GetVehicle(brand, GetTractorModel(brand), GetYearModel());
+                    brand = ((Tractor)vehicle).GetBrand(value);
+                    vehicle.BrandName = brand;
+                    vehicle.Model = GetTractorModel(brand);
+                    vehicle.YearOfMake = GetYearModel();
                     ConstantProcess();
-                    tractor.SpecialProcess();
+                    vehicle.SpecialProcess();
                     return vehicle;
 
                 default:
@@ -136,7 +147,6 @@ namespace Assignment2
                 Subaru subaru = new();
                 var subaruModelList = Enum.GetNames(typeof(Subaru.SubaruModelList));
                 value = LoopingChoices(Model, subaruModelList);
-                
                 model = subaru.GetModel(value);
             }
 
@@ -248,7 +258,6 @@ namespace Assignment2
         {
             int value = 0;
             bool isValid = int.TryParse(input, out value) && int.Parse(input) <= dataCount;
-
             return isValid;
         }
 
@@ -304,17 +313,6 @@ namespace Assignment2
 
             return $"{firstFour} XXXX XXXX {lastFour}";
         }
-        
-        //Assign values to vehicle object
-        private Vehicle GetVehicle(string brand, string model, string yearModel)
-        {
-            Vehicle vehicle = new();
-            vehicle.BrandName = brand;
-            vehicle.Model = model;
-            vehicle.YearOfMake = yearModel;
 
-            return vehicle;
-
-        }
     }   
 }

@@ -10,7 +10,7 @@ namespace Assignment2
     {
         public enum Brand { Caterpillar = 1, Kumo = 2, Kubota = 3 }
 
-        public void SpecialProcess()
+        public override void SpecialProcess()
         {
             Console.WriteLine("Tractor PTO maintenance done...");
         }

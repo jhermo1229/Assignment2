@@ -11,7 +11,7 @@ namespace Assignment2
     
         public enum Brand { Honda=1, Toyota=2, Subaru=3 }
 
-        public void SpecialProcess()
+        public override void SpecialProcess()
         {
             Console.WriteLine("Car body tuneup done...");
         }

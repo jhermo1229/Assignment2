@@ -19,19 +19,24 @@ namespace Assignment2
         public string Model { get => model; set => model = value; }
 
 
-        public virtual void ChangeOil()
+        public void ChangeOil()
         {
             Console.WriteLine("Oil Change done.....");
         }
 
-        public virtual void EngineTuneUp()
+        public void EngineTuneUp()
         {
             Console.WriteLine("Engine tune up done.....");
         }
 
-        public virtual void TransmissionCleanUp()
+        public void TransmissionCleanUp()
         {
             Console.WriteLine("Transmission clean up done.....");
+        }
+
+        public virtual void SpecialProcess()
+        {
+            Console.WriteLine("Vehicle Special Process");
         }
 
     }
